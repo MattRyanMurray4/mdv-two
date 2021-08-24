@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="col-50" layout="row" layout-align="center center">
+    <projects-applications-list
+      [applications]="applications$ | async"
+      (selected)="selectApplication($event)"
+      (deleted)="deleteApplication($event)"
+    ></projects-applications-list>
+  </div>
+  <div class="col-50" layout="row" layout-align="center center">
+    <projects-application-details
+      [form]="form"
+      [application]="selectedApplication | async"
+      (saved)="saveApplication($event)"
+      (cancelled)="cancel()"
+    ></projects-application-details>
+  </div>
+</div>
