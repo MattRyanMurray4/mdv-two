@@ -31,10 +31,10 @@ export class ApplicationsService {
     );
   }
 
-  delete(applicationId: string) {
+  delete(application: Application) {
     return this.httpClient
-      .delete<string>(this.getUrlById(applicationId))
-      .pipe(mapTo(applicationId));
+      .delete<Application>(this.getUrlById(application.id))
+      .pipe(mapTo(application));
   }
 
   private getUrl() {
